@@ -1,3 +1,6 @@
+using ClaimSystemMicroAPI.Data;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace ClaimSystemMicroAPI
 {
@@ -13,12 +16,12 @@ namespace ClaimSystemMicroAPI
             //builder.Services.AddSwaggerGen();
 
             // Add Database Context
-            //builder.Services.AddDbContext<ClaimAPIDbContext>(options =>
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<ClaimAPIDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
             // Add Auth Service
-           // builder.Services.AddScoped<AuthService>();
+            //builder.Services.AddScoped<AuthService>();
 
             // Add CORS
             builder.Services.AddCors(options =>
