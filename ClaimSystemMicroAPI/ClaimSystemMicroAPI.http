@@ -1,0 +1,6 @@
+@ClaimSystemMicroAPI_HostAddress = http://localhost:5087
+
+GET {{ClaimSystemMicroAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
