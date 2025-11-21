@@ -1,5 +1,5 @@
 using ClaimSystemMicroAPI.Data;
-
+using ClaimSystemMicroAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClaimSystemMicroAPI
@@ -13,7 +13,7 @@ namespace ClaimSystemMicroAPI
             // Add services to the container
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen();
 
             // Add Database Context
             builder.Services.AddDbContext<ClaimAPIDbContext>(options =>
@@ -21,7 +21,7 @@ namespace ClaimSystemMicroAPI
 
 
             // Add Auth Service
-            //builder.Services.AddScoped<AuthService>();
+            builder.Services.AddScoped<AuthService>();
 
             // Add CORS
             builder.Services.AddCors(options =>
@@ -47,8 +47,8 @@ namespace ClaimSystemMicroAPI
             // Configure the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
-                //app.UseSwagger();
-                //app.UseSwaggerUI();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
